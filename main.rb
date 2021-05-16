@@ -10,4 +10,7 @@ lastweek = today - 7
 today_es = Time.utc(today.year, today.month, today.day).to_i
 lastweek_es = Time.utc(lastweek.year, lastweek.month, lastweek.day).to_i
 
-pp Atcoder.submissions_within('yamm', lastweek_es, today_es)
+shojins = Atcoder.submissions_within('yamm', lastweek_es, today_es)
+results_hash = Atcoder.make_result_hash(shojins)
+
+pp results_hash
