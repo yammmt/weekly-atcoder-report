@@ -3,6 +3,7 @@
 require 'json'
 require 'pp'
 require_relative './atcoder/atcoder'
+require_relative './slack/slack'
 
 # filter by date (UTC)
 today = Date.today
@@ -13,4 +14,4 @@ lastweek_es = Time.utc(lastweek.year, lastweek.month, lastweek.day).to_i
 shojins = Atcoder.submissions_within('yamm', lastweek_es, today_es)
 results_hash = Atcoder.make_result_hash(shojins)
 
-pp results_hash
+Slack.send_string(results_hash.to_s)

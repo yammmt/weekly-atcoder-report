@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 
 ruby '3.0.1'
 
+gem 'dotenv'
 gem 'rest-client'
 
 group :test do
