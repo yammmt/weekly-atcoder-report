@@ -14,4 +14,12 @@ bundle install
 bundle exec ruby main.rb
 ```
 
+## Develop
+
+### Test
+
+```console
+bundle exec ruby test/atcoder.rb
+```
+
 ## Link
