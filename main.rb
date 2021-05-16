@@ -12,6 +12,7 @@ today_es = Time.utc(today.year, today.month, today.day).to_i
 lastweek_es = Time.utc(lastweek.year, lastweek.month, lastweek.day).to_i
 
 shojins = Atcoder.submissions_within('yamm', lastweek_es, today_es)
-results_hash = Atcoder.make_result_hash(shojins)
+difficulties = Atcoder.difficulties(shojins.map { |s| s['problem_id'] }.uniq)
+results_hash = Atcoder.make_result_hash(shojins, difficulties)
 
 Slack.send_report(results_hash, lastweek, today)

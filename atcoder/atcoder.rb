@@ -15,7 +15,22 @@ module Atcoder
   end
   module_function :submissions_within
 
-  def make_result_hash(original_hash)
+  def difficulties(problem_ids)
+    difficulties = JSON.parse(RestClient.get('https://kenkoooo.com/atcoder/resources/problem-models.json'))
+
+    ret = {}
+    problem_ids.each do |pid|
+      ret[pid] = if difficulties.key?(pid)
+                   difficulties[pid]['difficulty']
+                 else
+                   0
+                 end
+    end
+    ret
+  end
+  module_function :difficulties
+
+  def make_result_hash(original_hash, difficulties)
     results_map = {}
     original_hash.each do |h|
       result = h['result']
@@ -27,6 +42,9 @@ module Atcoder
         results_map[problem_id][result] = 1
       end
     end
+
+    results_map.each { |r| results_map[r[0]]['difficulty'] = difficulties[r[0]] }
+
     results_map
   end
   module_function :make_result_hash

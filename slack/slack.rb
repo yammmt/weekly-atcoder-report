@@ -56,6 +56,7 @@ module Slack
       ]
     }
 
+    results_hash = results_hash.sort
     results_hash.each do |h|
       msg[:blocks].push({ type: 'divider' })
       problem_id = h[0]
@@ -64,12 +65,12 @@ module Slack
                           type: 'section',
                           text: {
                             type: 'mrkdwn',
-                            text: ":clap: <#{problem_url} | #{problem_id}>"
+                            text: ":clap: <#{problem_url} | #{problem_id}> (diff: #{h[1]['difficulty']})"
                           }
                         })
 
       counter_array = []
-      h[1].each { |kv| counter_array.push("#{kv[0]}: #{kv[1]}") }
+      h[1].each { |kv| counter_array.push("#{kv[0]}: #{kv[1]}") unless kv[0] == 'difficulty' }
       counter_array = counter_array.sort
       results_str = ''
       counter_array.each { |c| results_str = "#{results_str}- #{c}\n" }
