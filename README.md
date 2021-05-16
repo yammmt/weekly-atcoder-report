@@ -27,6 +27,7 @@ bundle exec ruby main.rb
 
 ```console
 bundle exec ruby test/atcoder.rb
+bundle exec ruby test/slack.rb
 ```
 
 ## Link

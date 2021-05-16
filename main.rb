@@ -14,4 +14,4 @@ lastweek_es = Time.utc(lastweek.year, lastweek.month, lastweek.day).to_i
 shojins = Atcoder.submissions_within('yamm', lastweek_es, today_es)
 results_hash = Atcoder.make_result_hash(shojins)
 
-Slack.send_string(results_hash.to_s)
+Slack.send_report(results_hash, lastweek, today)
