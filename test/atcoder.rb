@@ -11,14 +11,6 @@ Minitest::Reporters.use!
 class AtcoderTest < Minitest::Test
   def setup
     WebMock.stub_request(:get, 'https://kenkoooo.com/atcoder/atcoder-api/results?user=yamm')
-           .with(
-             headers: {
-               'Accept' => '*/*',
-               'Accept-Encoding' => 'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-               'Host' => 'kenkoooo.com',
-               'User-Agent' => 'rest-client/2.1.0 (darwin20 x86_64) ruby/3.0.1p64'
-             }
-           )
            .to_return(
              status: 200,
              body: File.read('./test/json/submissions_yamm.json'),
@@ -26,14 +18,6 @@ class AtcoderTest < Minitest::Test
            )
 
     WebMock.stub_request(:get, 'https://kenkoooo.com/atcoder/resources/problem-models.json')
-           .with(
-             headers: {
-               'Accept' => '*/*',
-               'Accept-Encoding' => 'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-               'Host' => 'kenkoooo.com',
-               'User-Agent' => 'rest-client/2.1.0 (darwin20 x86_64) ruby/3.0.1p64'
-             }
-           )
            .to_return(
              status: 200,
              body: File.read('./test/json/difficulties.json'),
