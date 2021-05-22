@@ -1,5 +1,7 @@
 # weekly-atcoder-report
 
+[![Ruby](https://github.com/yammmt/weekly-atcoder-report/actions/workflows/ruby.yml/badge.svg)](https://github.com/yammmt/weekly-atcoder-report/actions/workflows/ruby.yml)
+
 weekly-atcoder-report (for short, war) posts weekly AtCoder submission status to Slack.
 
 ## Move
