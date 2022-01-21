@@ -50,6 +50,12 @@ bundle exec ruby test/atcoder.rb
 bundle exec ruby test/slack.rb
 ```
 
+or
+
+```console
+bundle exec rake
+```
+
 ## Link
 
 - [kenkoooo/AtCoderProblems](https://github.com/kenkoooo/AtCoderProblems)
